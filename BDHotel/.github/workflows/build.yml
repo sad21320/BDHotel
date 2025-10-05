@@ -1,33 +1,31 @@
-name: Build BDHotel  # Название workflow
+name: Build BDHotel
 
-on:  # Триггеры: запуск при push или pull_request
-  [push, pull_request]
-
-jobs:  # Два job'а для разных платформ
-  build-windows:  # Job для Windows
-    runs-on: windows-latest  # Платформа: Windows
-    steps:
-    - uses: actions/checkout@v4  # Клонируем код
-    - name: Setup .NET  # Установка .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'  # Версия .NET 8.0
-    - name: Build  # Сборка проекта
-      run: dotnet build --configuration Release --no-restore  # Release-режим, без восстановления пакетов
+on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:  # Для ручного запуска
 
-  build-linux:  # Job для Linux
-    runs-on: ubuntu-latest  # Платформа: Linux
+jobs:
+  build-windows:
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4  # Клонируем код
-    - name: Setup .NET  # Установка .NET SDK
+    - uses: actions/checkout@v4
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'  # Версия .NET 8.0
-    - name: Build  # Сборка проекта
-      run: dotnet build --configuration Release --no-restore  # Release-режим, без восстановления пакетов
-      
+        dotnet-version: '8.0.x'
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
