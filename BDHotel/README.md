@@ -1,5 +1,7 @@
 # BDHotel
 
-Консольное приложение .NET Core для работы с базой данных отеля с использованием Entity Framework Core.
+РљРѕРЅСЃРѕР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ .NET Core РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С… РѕС‚РµР»СЏ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј Entity Framework Core.
 
-*Проект создан в рамках лабораторной работы по Entity Framework Core.*
+*РџСЂРѕРµРєС‚ СЃРѕР·РґР°РЅ РІ СЂР°РјРєР°С… Р»Р°Р±РѕСЂР°С‚РѕСЂРЅРѕР№ СЂР°Р±РѕС‚С‹ РїРѕ Entity Framework Core.*
+
+![Build Status](https://github.com/sad21320/BDHotel/actions/workflows/build.yml/badge.svg)
