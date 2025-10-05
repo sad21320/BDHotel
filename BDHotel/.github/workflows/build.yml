@@ -1,0 +1,27 @@
+name: Build BDHotel  # Название workflow
+
+on:  # Триггеры: запуск при push или pull_request
+  [push, pull_request]
+
+jobs:  # Два job'а для разных платформ
+  build-windows:  # Job для Windows
+    runs-on: windows-latest  # Платформа: Windows
+    steps:
+    - uses: actions/checkout@v4  # Клонируем код
+    - name: Setup .NET  # Установка .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # Версия .NET 8.0
+    - name: Build  # Сборка проекта
+      run: dotnet build --configuration Release --no-restore  # Release-режим, без восстановления пакетов
+
+  build-linux:  # Job для Linux
+    runs-on: ubuntu-latest  # Платформа: Linux
+    steps:
+    - uses: actions/checkout@v4  # Клонируем код
+    - name: Setup .NET  # Установка .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # Версия .NET 8.0
+    - name: Build  # Сборка проекта
+      run: dotnet build --configuration Release --no-restore  # Release-режим, без восстановления пакетов
